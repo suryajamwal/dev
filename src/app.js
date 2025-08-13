@@ -4,10 +4,23 @@ const app=express();
 // we can also multiple routes symbols like (+,*,?);
  
 
+
+app.use("/me",(req,res,next) =>{
+console .log("server running");
+// res.send("first response"); 
+next();
+},
+(req,res)=>{
+   console.log("second sever is running")
+res.send("second response");
+}
+
+
+);
 app.get("/user/:userid/:name/:pass",(req,res)=>{
    console.log(req.params);
 })
-app.post("/user",(req,res) =>{
+app.post("/user",(req,res) => {
    res.send({firstname:"surya" ,lastname:"dev"});
 })
 app.get("/user",(req,res) => {
