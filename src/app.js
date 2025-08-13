@@ -1,7 +1,12 @@
 const express=require("express");
 const app=express();
  
+// we can also multiple routes symbols like (+,*,?);
+ 
 
+app.get("/user/:userid/:name/:pass",(req,res)=>{
+   console.log(req.params);
+})
 app.post("/user",(req,res) =>{
    res.send({firstname:"surya" ,lastname:"dev"});
 })
